@@ -26,12 +26,12 @@ cv::CascadeClassifier eye_cascade;
 int detectEye(cv::Mat& im, cv::Mat& tpl, cv::Rect& rect)
 {
 	std::vector<cv::Rect> faces, eyes;
-	face_cascade.detectMultiScale(im, faces, 1.1, 2, 0|CV_HAAR_SCALE_IMAGE, cv::Size(50,50));
+	face_cascade.detectMultiScale(im, faces, 1.1, 2, 0|CV_HAAR_SCALE_IMAGE, cv::Size(160,160));
 
 	for (int i = 0; i < faces.size(); i++)
 	{
 		cv::Mat face = im(faces[i]);
-		eye_cascade.detectMultiScale(face, eyes, 1.1, 2, 0|CV_HAAR_SCALE_IMAGE, cv::Size(30,30));
+		eye_cascade.detectMultiScale(face, eyes, 1.1, 2, 0|CV_HAAR_SCALE_IMAGE, cv::Size(70,70));
 
 		if (eyes.size())
 		{
